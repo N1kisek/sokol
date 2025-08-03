@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to top, #007ACC, #00ADEF);
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.cloud {
+  position: absolute;
+  opacity: 0.8;
+  animation: cloudMove 60s linear infinite;
+  pointer-events: none;
+}
+
+.cloud1 {
+  width: 200px;
+  top: 50px;
+  left: -250px;
+}
+
+.cloud2 {
+  width: 150px;
+  top: 180px;
+  left: -200px;
+  animation-delay: 30s;
+}
+
+@keyframes cloudMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(120vw);
+  }
+}
+
+#falcon {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  transition: bottom 0.5s;
+  animation: flap 2s ease-in-out infinite;
+}
+
+@keyframes flap {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+#controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 90vw;
+}
+
+#controls label {
+  margin: 0 5px;
+  font-weight: 600;
+  align-self: center;
+}
+
+#controls select,
+#controls input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin: 0 5px;
+  min-width: 80px;
+}
+
+#controls button {
+  background: #007ACC;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#controls button:hover {
+  background: #005F99;
+}
+
+#timer {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  user-select: none;
+}
+
+#message {
+  width: 100%;
+  font-weight: 600;
+  color: #007ACC;
+  margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  #controls {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+
+  #controls select,
+  #controls input,
+  #controls button {
+    width: 100%;
+    margin: 5px 0;
+    min-width: auto;
+  }
+
+#rain {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: visible;
+  z-index: 5;
+}
+
+.drop {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: rgba(173, 216, 230, 0.7);
+  border-radius: 50%;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+@keyframes lightning {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgba(255, 255, 255, 0.8); }
+}
+
+#lightning-flash {
+  pointer-events: none;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: transparent;
+  z-index: 10;
+}
+
+
+}
